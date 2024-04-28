@@ -56,7 +56,7 @@ const NavBar = () => {
                 flexWrap='wrap'
                 p={2}
                 maxW='container.md'
-                justifyContent='center'
+                justifyContent='space-between'
             >
                 <Flex align='center' mr={5}>
                     <Heading as='h1' size='lg'>
@@ -83,7 +83,7 @@ const NavBar = () => {
                     </LinkItem>
                 </Stack>
 
-                <Box flex={1} justifyContent='right'>
+                <Box>
                     <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
                         <Menu>
                             <MenuButton
