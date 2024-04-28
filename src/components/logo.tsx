@@ -14,7 +14,7 @@ const LogoBox = styled.span`
     }
 `
 
-const Logo = (): JSX.Element => {
+const Logo = () => {
     const logoImage = `/images/header-title-logo.png`
 
     return (
