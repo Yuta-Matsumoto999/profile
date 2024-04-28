@@ -12,6 +12,8 @@ import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '@/components/animations/section'
 import { NextPage } from 'next'
 import Timeline from '@/components/timeline'
+import { Skills } from '@/const/skills'
+import SkillGrid from '@/components/skills'
 
 const Home: NextPage = () => {
     return (
@@ -45,7 +47,7 @@ const Home: NextPage = () => {
                 <Heading as='h3' variant='section-title'>
                     About me
                 </Heading>
-                <Box>
+                <Box fontSize={15}>
                     <Text>こんにちは。</Text>
                     <Text>
                         日本でフリーランスのWebエンジニアとしてバックエンドを中心にWebアプリケーションの開発を行っています。
@@ -76,11 +78,11 @@ const Home: NextPage = () => {
                 <Timeline />
             </Section>
 
-            <Section delay={0.3}>
+            <Section delay={0.4}>
                 <Heading as='h3' variant='section-title'>
                     I❤️
                 </Heading>
-                <Box display='flex'>
+                <Box display='flex' fontSize='15px'>
                     <Text>サウナ / 温泉</Text>
                     <Image
                         src='/images/favorites/sauna-logo.png'
@@ -91,7 +93,7 @@ const Home: NextPage = () => {
                     />
                 </Box>
                 <Box display='flex' mt={2}>
-                    <Text>浦和レッドダイアモンズ</Text>
+                    <Text fontSize='15px'>浦和レッドダイアモンズ</Text>
                     <Image
                         src='/images/favorites/reds_flag.png'
                         alt='reds image'
@@ -100,8 +102,19 @@ const Home: NextPage = () => {
                         ml={2}
                     />
                 </Box>
-                <Text mt={2}>ロードバイク 🚴‍♂️</Text>
-                <Text mt={2}>神社巡り ⛩️</Text>
+                <Text mt={2} fontSize='15px'>
+                    ロードバイク 🚴‍♂️
+                </Text>
+                <Text mt={2} fontSize='15px'>
+                    神社巡り ⛩️
+                </Text>
+            </Section>
+
+            <Section delay={0.4}>
+                <Heading as='h3' variant='section-title'>
+                    Skills
+                </Heading>
+                <SkillGrid skills={Skills} />
             </Section>
         </Container>
     )
