@@ -75,6 +75,34 @@ const Home: NextPage = () => {
                 </Heading>
                 <Timeline />
             </Section>
+
+            <Section delay={0.3}>
+                <Heading as='h3' variant='section-title'>
+                    I❤️
+                </Heading>
+                <Box display='flex'>
+                    <Text>サウナ / 温泉</Text>
+                    <Image
+                        src='/images/favorites/sauna-logo.png'
+                        alt='sauna logo image'
+                        w={6}
+                        h={6}
+                        ml={2}
+                    />
+                </Box>
+                <Box display='flex' mt={2}>
+                    <Text>浦和レッドダイアモンズ</Text>
+                    <Image
+                        src='/images/favorites/reds_flag.png'
+                        alt='reds image'
+                        w={6}
+                        h={6}
+                        ml={2}
+                    />
+                </Box>
+                <Text mt={2}>ロードバイク 🚴‍♂️</Text>
+                <Text mt={2}>神社巡り ⛩️</Text>
+            </Section>
         </Container>
     )
 }
