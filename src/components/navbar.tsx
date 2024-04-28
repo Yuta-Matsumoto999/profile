@@ -14,9 +14,9 @@ import {
     IconButton,
     useColorModeValue,
     Text,
-    ChakraProps,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import ThemeToggleButton from './theme-toggle-button'
 
 interface Props {
     href: string
@@ -82,8 +82,8 @@ const NavBar = () => {
                         Contact
                     </LinkItem>
                 </Stack>
-
                 <Box>
+                    <ThemeToggleButton />
                     <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
                         <Menu>
                             <MenuButton
