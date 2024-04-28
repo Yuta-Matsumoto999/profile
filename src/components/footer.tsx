@@ -38,17 +38,17 @@ const Footer = () => {
                     <SimpleGrid columns={[1, 3, 3]} gap={{ base: 4, md: 6 }}>
                         <Item
                             title='Yuta-Matsumoto999'
-                            logo='/images/footer-github.png'
+                            logo='/images/footer/footer-github.png'
                             link='https://github.com/Yuta-Matsumoto999'
                         />
                         <Item
                             title='tigers.football'
-                            logo='/images/footer-instagram.png'
+                            logo='/images/footer/footer-instagram.png'
                             link='https://www.instagram.com/tigers.football?igsh=MWM3YTQwazVncjhhZg%3D%3D&utm_source=qr'
                         />
                         <Item
                             title='Yuta-Matsumoto'
-                            logo='/images/footer-facebook.png'
+                            logo='/images/footer/footer-facebook.png'
                             link='https://www.facebook.com/profile.php?id=100012227116047'
                         />
                     </SimpleGrid>
