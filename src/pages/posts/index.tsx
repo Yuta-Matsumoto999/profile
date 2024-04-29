@@ -1,10 +1,15 @@
 import PageAnimation from '@/components/animations/article'
 import Section from '@/components/animations/section'
 import { PostGridItem } from '@/components/grid-item'
+import ListFactory from '@/services/posts/factory/listFactory'
+import ListRepository from '@/services/posts/repository/listRepository'
+import type Post from '@/services/types/post'
 import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import { NextPage } from 'next'
 
-const Post: NextPage = () => {
+const Post: NextPage<{
+    staticPostList: Post[]
+}> = ({ staticPostList }) => {
     return (
         <PageAnimation>
             <Container>
@@ -12,21 +17,38 @@ const Post: NextPage = () => {
                     Posts
                 </Heading>
                 <SimpleGrid columns={[1, 1, 2]} gap={6}>
-                    <Section delay={0.3}>
-                        <PostGridItem
-                            id='20000000'
-                            title='test'
-                            thumbnail=''
-                            width={2000}
-                            height={800}
-                        >
-                            testetetetetstetstettestte
-                        </PostGridItem>
-                    </Section>
+                    {staticPostList.map((item, index) => {
+                        return (
+                            <Section delay={0.3} key={index}>
+                                <PostGridItem
+                                    id={item.id}
+                                    title={item.title}
+                                    thumbnail={item.thumbnail.url}
+                                    width={item.thumbnail.width}
+                                    height={item.thumbnail.height}
+                                >
+                                    {item.overview}
+                                </PostGridItem>
+                            </Section>
+                        )
+                    })}
                 </SimpleGrid>
             </Container>
         </PageAnimation>
     )
+}
+
+export async function getStaticProps() {
+    const repository = new ListRepository()
+
+    const staticPostList = await repository.get()
+
+    return {
+        props: {
+            staticPostList,
+        },
+        revalidate: 5,
+    }
 }
 
 export default Post
