@@ -7,7 +7,7 @@ interface Props {
 }
 
 const TimelineItem = ({ children, date }: Props) => (
-    <Box display='flex' alignItems='start' mt={2}>
+    <Box display='flex' alignItems='start'>
         <Box>
             <Text pt={3} pr={5} minW='70px' fontSize='14px' fontWeight={400}>
                 {date}
