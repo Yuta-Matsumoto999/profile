@@ -18,6 +18,7 @@
         "axios": "^1.6.8",
         "eslint-config-prettier": "^9.1.0",
         "framer-motion": "^11.1.7",
+        "microcms-js-sdk": "^3.1.1",
         "next": "14.2.3",
         "prettier": "^3.2.5",
         "react": "^18",
