@@ -1,12 +1,14 @@
-import { Container, Box, Heading, SimpleGrid } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import PageAnimation from '@/components/animations/article'
 import Section from '@/components/animations/section'
 import { WorkGridItem } from '@/components/grid-item'
 import { NextPage } from 'next'
+import type Work from '@/services/types/work'
+import ListRepository from '@/services/works/repository/listRepository'
 
-import WorkImage1 from '../../../public/images/works/work-1.png'
-
-const Work: NextPage = () => {
+const Work: NextPage<{
+    staticWorkList: Work[]
+}> = ({ staticWorkList }) => {
     return (
         <PageAnimation>
             <Container>
@@ -14,25 +16,37 @@ const Work: NextPage = () => {
                     Works
                 </Heading>
                 <SimpleGrid columns={[1, 1, 2]} gap={6}>
-                    <Section delay={0.3}>
-                        <WorkGridItem id={1} title='天地の旅' thumbnail={WorkImage1}>
-                            hewifhewrifhew9ojd0ioewjoi
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.4}>
-                        <WorkGridItem id={1} title='天地の旅' thumbnail={WorkImage1}>
-                            hewifhewrifhew9ojd0ioewjoi
-                        </WorkGridItem>
-                    </Section>
-                    <Section delay={0.5}>
-                        <WorkGridItem id={1} title='天地の旅' thumbnail={WorkImage1}>
-                            hewifhewrifhew9ojd0ioewjoi
-                        </WorkGridItem>
-                    </Section>
+                    {staticWorkList.map((item, index) => {
+                        return (
+                            <Section delay={0.3} key={index}>
+                                <WorkGridItem
+                                    id={item.id}
+                                    title={item.title}
+                                    thumbnail={item.thumbnail.url}
+                                    width={item.thumbnail.width}
+                                    height={item.thumbnail.height}
+                                >
+                                    {item.overview}
+                                </WorkGridItem>
+                            </Section>
+                        )
+                    })}
                 </SimpleGrid>
             </Container>
         </PageAnimation>
     )
+}
+
+export async function getStaticProps() {
+    const repository = new ListRepository()
+    const staticWorkList = await repository.get()
+
+    return {
+        props: {
+            staticWorkList,
+        },
+        revalidate: 5,
+    }
 }
 
 export default Work
