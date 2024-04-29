@@ -6,6 +6,7 @@ interface Post {
     title: string
     overview: string
     content: string
+    updatedAt: string
     thumbnail: Thumbnail
     tags: Tag[]
 }

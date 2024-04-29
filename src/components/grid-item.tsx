@@ -43,7 +43,6 @@ export const WorkGridItem = ({
 }
 
 interface PostGridItemProps {
-    children: ReactNode
     id: string
     title: string
     thumbnail: string
@@ -51,18 +50,11 @@ interface PostGridItemProps {
     height: number
 }
 
-export const PostGridItem = ({
-    children,
-    id,
-    title,
-    thumbnail,
-    width,
-    height,
-}: PostGridItemProps) => {
+export const PostGridItem = ({ id, title, thumbnail, width, height }: PostGridItemProps) => {
     return (
         <Box w='100%'>
             <NextLink href={`/posts/${id}`}>
-                <LinkBox cursor='pointer' display='flex' flexDirection='column' alignItems='center'>
+                <LinkBox cursor='pointer' display='flex' flexDirection='column' alignItems='start'>
                     <Image
                         src={thumbnail}
                         alt={title}
@@ -70,10 +62,9 @@ export const PostGridItem = ({
                         height={height}
                         className='grid-item-thumbnail'
                     />
-                    <Text mt={3} fontSize={16}>
+                    <Text mt={3} fontSize={16} fontWeight={600}>
                         {title}
                     </Text>
-                    <Text fontSize={14}>{children}</Text>
                 </LinkBox>
             </NextLink>
         </Box>
