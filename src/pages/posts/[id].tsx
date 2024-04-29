@@ -1,14 +1,14 @@
 import PageAnimation from '@/components/animations/article'
-import Work from '@/services/types/work'
-import IdListRepository from '@/services/works/repository/idListRepository'
-import ShowRepository from '@/services/works/repository/showRepository'
+import Post from '@/services/types/post'
+import IdListRepository from '@/services/posts/repository/idListRepository'
+import ShowRepository from '@/services/posts/repository/showRepository'
 import { Container, Heading } from '@chakra-ui/react'
 import { NextPage } from 'next'
 
-const WorkDetail: NextPage<{
+const PostDetail: NextPage<{
     id: string
-    staticWork: Work
-}> = ({ id, staticWork }) => {
+    staticPost: Post
+}> = ({ id, staticPost }) => {
     return (
         <PageAnimation>
             <Container>
@@ -38,19 +38,19 @@ export async function getStaticProps({
     const id = params.id
     const repository = new ShowRepository()
 
-    const staticWork = await repository.get(id)
+    const staticPost = await repository.get(id)
 
-    if (!staticWork) {
+    if (!staticPost) {
         return { notFound: true }
     }
 
     return {
         props: {
             id,
-            staticWork,
+            staticPost,
         },
         revalidate: 5,
     }
 }
 
-export default WorkDetail
+export default PostDetail
