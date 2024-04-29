@@ -23,7 +23,7 @@ export async function getStaticPaths() {
     const paths = await repository.get()
 
     return {
-        paths: [...paths],
+        paths,
         fallback: false,
     }
 }
