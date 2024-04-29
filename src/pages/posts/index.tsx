@@ -26,9 +26,7 @@ const Post: NextPage<{
                                     thumbnail={item.thumbnail.url}
                                     width={item.thumbnail.width}
                                     height={item.thumbnail.height}
-                                >
-                                    {item.overview}
-                                </PostGridItem>
+                                />
                             </Section>
                         )
                     })}
