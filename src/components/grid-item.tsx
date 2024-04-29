@@ -6,23 +6,33 @@ import { ReactNode } from 'react'
 
 interface WorkGridItemProps {
     children: ReactNode
-    id: number
+    id: string
     title: string
-    thumbnail: StaticImageData
+    thumbnail: string
+    width: number
+    height: number
 }
 
-export const WorkGridItem = ({ children, id, title, thumbnail }: WorkGridItemProps) => {
+export const WorkGridItem = ({
+    children,
+    id,
+    title,
+    thumbnail,
+    width,
+    height,
+}: WorkGridItemProps) => {
     return (
         <Box w='100%'>
-            <NextLink href={`/works/${id}}`}>
+            <NextLink href={`/works/${id}`}>
                 <LinkBox cursor='pointer' display='flex' flexDirection='column' alignItems='center'>
                     <Image
                         src={thumbnail}
                         alt={title}
-                        placeholder='blur'
+                        width={width}
+                        height={height}
                         className='grid-item-thumbnail'
                     />
-                    <Text mt={3} fontSize={15}>
+                    <Text mt={3} fontSize={16}>
                         {title}
                     </Text>
                     <Text fontSize={14}>{children}</Text>
