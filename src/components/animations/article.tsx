@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
+import { GridItemStyle } from '../grid-item'
 
 interface Props {
     children: ReactNode
@@ -14,6 +15,7 @@ const PageAnimation = ({ children }: Props) => (
         style={{ position: 'relative' }}
     >
         {children}
+        <GridItemStyle />
     </motion.article>
 )
 
