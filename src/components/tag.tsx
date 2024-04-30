@@ -9,7 +9,7 @@ interface TagProps {
 
 export const Tag = ({ id, children }: TagProps) => {
     return (
-        <Box bg='whiteAlpha.500' borderRadius={10} fontSize={12} p={2} fontWeight={600}>
+        <Box bg='whiteAlpha.500' borderRadius={3} fontSize={12} p={1} fontWeight={400}>
             {children}
         </Box>
     )
