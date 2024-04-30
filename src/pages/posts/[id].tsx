@@ -21,7 +21,19 @@ const PostDetail: NextPage<{
                         {staticPost.title}
                     </Heading>
                 </Box>
-                <TagList tags={staticPost.tags} justifyContent='center' mt={0} mb={6} />
+                <TagList tags={staticPost.tags} justifyContent='start' mt={0} mb={4} />
+                <Box display='flex' justifyContent='end'>
+                    <Text fontSize={12} mr={1}>
+                        更新日時:
+                    </Text>
+                    <Datetime
+                        dateTimeString={staticPost.updatedAt}
+                        mt={0}
+                        mb={2}
+                        fontSize={12}
+                        fontWeight={300}
+                    />
+                </Box>
                 <Box mb={4}>
                     <Image
                         src={staticPost.thumbnail.url}
@@ -31,16 +43,10 @@ const PostDetail: NextPage<{
                         className='grid-item-thumbnail'
                     />
                 </Box>
-                <Box display='flex' justifyContent='end'>
-                    <Datetime
-                        dateTimeString={staticPost.updatedAt}
-                        mt={0}
-                        mb={2}
-                        fontSize={12}
-                        fontWeight={300}
-                    />
-                </Box>
-                <Box dangerouslySetInnerHTML={{ __html: staticPost.content }}></Box>
+                <Box
+                    className='content'
+                    dangerouslySetInnerHTML={{ __html: staticPost.content }}
+                ></Box>
             </Container>
         </PageAnimation>
     )
