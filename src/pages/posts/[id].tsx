@@ -6,6 +6,8 @@ import { Box, Container, Heading, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import Tag from '@/components/tag'
+import TagList from '@/components/tag'
+import Datetime from '@/components/datetime'
 
 const PostDetail: NextPage<{
     id: string
@@ -19,15 +21,7 @@ const PostDetail: NextPage<{
                         {staticPost.title}
                     </Heading>
                 </Box>
-                <Box display='flex' flexWrap='wrap' mb={8} justifyContent='center'>
-                    {staticPost.tags.map((item, index) => {
-                        return (
-                            <Tag id={item.id} key={index}>
-                                #{item.title}
-                            </Tag>
-                        )
-                    })}
-                </Box>
+                <TagList tags={staticPost.tags} justifyContent='center' mt={0} mb={6} />
                 <Box mb={4}>
                     <Image
                         src={staticPost.thumbnail.url}
@@ -38,9 +32,13 @@ const PostDetail: NextPage<{
                     />
                 </Box>
                 <Box display='flex' justifyContent='end'>
-                    <Text fontSize={12} mb={2}>
-                        {staticPost.updatedAt}
-                    </Text>
+                    <Datetime
+                        dateTimeString={staticPost.updatedAt}
+                        mt={0}
+                        mb={2}
+                        fontSize={12}
+                        fontWeight={300}
+                    />
                 </Box>
                 <Box dangerouslySetInnerHTML={{ __html: staticPost.content }}></Box>
             </Container>

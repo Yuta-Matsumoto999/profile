@@ -1,3 +1,4 @@
+import type Tag from '@/services/types/tag'
 import { Box, useColorMode } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
@@ -6,7 +7,7 @@ interface TagProps {
     children: ReactNode
 }
 
-const Tag = ({ id, children }: TagProps) => {
+export const Tag = ({ id, children }: TagProps) => {
     return (
         <Box bg='whiteAlpha.500' borderRadius={10} fontSize={12} p={2} fontWeight={600}>
             {children}
@@ -14,4 +15,25 @@ const Tag = ({ id, children }: TagProps) => {
     )
 }
 
-export default Tag
+interface TagList {
+    tags: Tag[]
+    justifyContent: string
+    mt: number
+    mb: number
+}
+
+const TagList = ({ tags, justifyContent, mt, mb }: TagList) => {
+    return (
+        <Box mt={mt} mb={mb} display='flex' flexWrap='wrap' justifyContent={justifyContent}>
+            {tags.map((item, index) => {
+                return (
+                    <Tag id={item.id} key={index}>
+                        #{item.title}
+                    </Tag>
+                )
+            })}
+        </Box>
+    )
+}
+
+export default TagList

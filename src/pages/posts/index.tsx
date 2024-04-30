@@ -1,6 +1,7 @@
 import PageAnimation from '@/components/animations/article'
 import Section from '@/components/animations/section'
 import { PostGridItem } from '@/components/grid-item'
+import TagList from '@/components/tag'
 import ListFactory from '@/services/posts/factory/listFactory'
 import ListRepository from '@/services/posts/repository/listRepository'
 import type Post from '@/services/types/post'
@@ -26,7 +27,14 @@ const Post: NextPage<{
                                     thumbnail={item.thumbnail.url}
                                     width={item.thumbnail.width}
                                     height={item.thumbnail.height}
-                                />
+                                >
+                                    <TagList
+                                        tags={item.tags}
+                                        justifyContent='start'
+                                        mt={2}
+                                        mb={0}
+                                    />
+                                </PostGridItem>
                             </Section>
                         )
                     })}
