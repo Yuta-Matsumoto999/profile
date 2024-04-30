@@ -1,0 +1,60 @@
+.content h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-top: 10px;
+    border-bottom: 1px solid rgb(0 0 0 / 12%);
+    position: relative;
+    padding-left: 18px;
+}
+
+.content h1::before {
+    position: absolute;
+    top: 10;
+    left: 0;
+    content: '';
+    width: 5px;
+    height: 75%;
+    background-color: #319795;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(0 0 0 / 12%);
+    padding-top: 8px;
+}
+
+.content h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding-top: 6px;
+}
+
+.content p {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.content pre {
+    padding: 16px;
+    background-color: #f5f0e8;
+    width: 100%;
+    font-size: 14px;
+    overflow-x: scroll;
+}
+
+.content blockquote {
+    position: relative;
+    padding-left: 14px;
+}
+
+.content blockquote::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 4px;
+    height: 100%;
+    background-color: #cccccc;
+}
