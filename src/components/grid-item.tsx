@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Box, Text, LinkBox } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 import { ReactNode } from 'react'
+import TagList from './tag'
 
 interface WorkGridItemProps {
     children: ReactNode
@@ -48,9 +49,17 @@ interface PostGridItemProps {
     thumbnail: string
     width: number
     height: number
+    children: ReactNode
 }
 
-export const PostGridItem = ({ id, title, thumbnail, width, height }: PostGridItemProps) => {
+export const PostGridItem = ({
+    id,
+    title,
+    thumbnail,
+    width,
+    height,
+    children,
+}: PostGridItemProps) => {
     return (
         <Box w='100%'>
             <NextLink href={`/posts/${id}`}>
@@ -65,6 +74,7 @@ export const PostGridItem = ({ id, title, thumbnail, width, height }: PostGridIt
                     <Text mt={3} fontSize={16} fontWeight={600}>
                         {title}
                     </Text>
+                    {children}
                 </LinkBox>
             </NextLink>
         </Box>
