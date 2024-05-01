@@ -9,7 +9,6 @@ interface Props {
 }
 
 const Datetime = ({ dateTimeString, mt, mb, fontSize, fontWeight }: Props) => {
-    console.log(dateTimeString)
     const date = new Date(dateTimeString)
     const formattedDate = date.toLocaleString('ja-JP', {
         timeZone: 'Asia/Tokyo',
