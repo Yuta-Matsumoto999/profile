@@ -1,5 +1,6 @@
 import { ChakraProps, extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
+import { Roboto } from 'next/font/google'
 
 const styles = {
     global: (props: ChakraProps) => ({
@@ -30,9 +31,14 @@ const components = {
         }),
     },
 }
+const nextFont = Roboto({
+    weight: ['400'],
+    subsets: ['latin'],
+})
 
 const fonts = {
-    heading: "'M PLUS Rounded 1c'",
+    heading: nextFont.style.fontFamily,
+    body: nextFont.style.fontFamily,
 }
 
 const colors = {

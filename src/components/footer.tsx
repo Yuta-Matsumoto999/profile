@@ -35,7 +35,7 @@ const Footer = () => {
                     flexWrap='wrap'
                     justifyContent='center'
                 >
-                    <SimpleGrid columns={[1, 3, 3]} gap={{ base: 4, md: 6 }}>
+                    <SimpleGrid columns={[1, 3, 3]} gap={{ base: 4, md: 4 }}>
                         <Item
                             title='Yuta-Matsumoto999'
                             logo='/images/footer/footer-github.png'
