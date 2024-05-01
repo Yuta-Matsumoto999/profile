@@ -1,6 +1,6 @@
 import { ChakraProps, extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
-import { Averia_Serif_Libre } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
 const styles = {
     global: (props: ChakraProps) => ({
@@ -31,7 +31,7 @@ const components = {
         }),
     },
 }
-const nextFont = Averia_Serif_Libre({
+const nextFont = Roboto({
     weight: ['400'],
     subsets: ['latin'],
 })
