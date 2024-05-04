@@ -8,8 +8,10 @@ import {
     Button,
     useColorModeValue,
     Textarea,
+    useToast,
 } from '@chakra-ui/react'
 import axios from 'axios'
+import React from 'react'
 
 type FormData = {
     name: string
@@ -19,6 +21,31 @@ type FormData = {
 }
 
 const ContactForm = () => {
+    const toast = useToast({
+        position: 'top',
+        containerStyle: {
+            minWidth: '95%',
+        },
+    })
+
+    const openToast = (text: string, status: string) => {
+        if (status === 'success') {
+            toast({
+                description: text,
+                status: 'success',
+                isClosable: true,
+            })
+        }
+
+        if (status === 'error') {
+            toast({
+                description: text,
+                status: 'error',
+                isClosable: true,
+            })
+        }
+    }
+
     const {
         handleSubmit,
         register,
@@ -26,7 +53,12 @@ const ContactForm = () => {
     } = useForm<FormData>()
 
     const onSubmit = handleSubmit(async (data) => {
-        const sendEmail = await axios.post(String(process.env.NEXT_PUBLIC_HYPERFORM_URL), data)
+        try {
+            await axios.post(String(process.env.NEXT_PUBLIC_HYPERFORM_URL), data)
+            openToast('お問い合わせが完了しました。', 'success')
+        } catch {
+            openToast('送信エラーが発生しました。通信環境を確認してください。', 'error')
+        }
     })
 
     return (
