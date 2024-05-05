@@ -4,11 +4,13 @@ import Layout from '@/components/layouts/main'
 import { AnimatePresence } from 'framer-motion'
 import theme from '@/styles/theme'
 import '../styles/global.css'
+import { PineTree } from '@/components/glf/pineTree'
 
 export default function App({ Component, pageProps, router }: AppProps) {
     return (
         <ChakraProvider theme={theme}>
             <Layout>
+                <PineTree />
                 <AnimatePresence
                     initial={true}
                     mode='wait'
