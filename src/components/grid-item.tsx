@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Box, Text, LinkBox } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 import { ReactNode } from 'react'
-import TagList from './tag'
 
 interface WorkGridItemProps {
     children: ReactNode
@@ -12,6 +11,7 @@ interface WorkGridItemProps {
     thumbnail: string
     width: number
     height: number
+    link: string
 }
 
 export const WorkGridItem = ({
@@ -21,10 +21,11 @@ export const WorkGridItem = ({
     thumbnail,
     width,
     height,
+    link,
 }: WorkGridItemProps) => {
     return (
         <Box w='100%'>
-            <NextLink href={`/works/${id}`}>
+            <NextLink href={link} target='_blank'>
                 <LinkBox cursor='pointer' display='flex' flexDirection='column' alignItems='center'>
                     <Image
                         src={thumbnail}

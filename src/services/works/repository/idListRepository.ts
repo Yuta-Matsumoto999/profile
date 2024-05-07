@@ -8,6 +8,7 @@ class IdListRepository {
                 endpoint: 'works',
                 queries: {
                     fields: 'id',
+                    filters: 'isShowDetail[equals]true',
                 },
             })
             let idList: any = []

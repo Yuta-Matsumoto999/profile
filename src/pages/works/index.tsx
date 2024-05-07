@@ -25,6 +25,7 @@ const Work: NextPage<{
                                     thumbnail={item.thumbnail.url}
                                     width={item.thumbnail.width}
                                     height={item.thumbnail.height}
+                                    link={item.link}
                                 >
                                     {item.overview}
                                 </WorkGridItem>

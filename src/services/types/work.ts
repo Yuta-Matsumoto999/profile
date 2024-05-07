@@ -6,6 +6,8 @@ interface Work {
     overview: string
     content: string
     thumbnail: Thumbnail
+    isShowDetail: boolean
+    link: string
 }
 
 export default Work
