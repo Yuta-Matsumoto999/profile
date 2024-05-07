@@ -1,10 +1,10 @@
-import Work from '../../types/work'
+import Post from '../../types/post'
 import ShowFactory from '../factory/showFactory'
 import { client } from '@/services/client'
 import { hasUncaughtExceptionCaptureCallback } from 'process'
 
 class ShowRepository {
-    async get(id: string): Promise<Work> {
+    async get(id: string): Promise<Post> {
         try {
             const res = await client.get({
                 endpoint: 'blogs',
