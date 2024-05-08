@@ -11,7 +11,8 @@ interface WorkGridItemProps {
     thumbnail: string
     width: number
     height: number
-    link: string
+    isShowDetail: boolean
+    link: string | null
 }
 
 export const WorkGridItem = ({
@@ -21,25 +22,53 @@ export const WorkGridItem = ({
     thumbnail,
     width,
     height,
+    isShowDetail,
     link,
 }: WorkGridItemProps) => {
     return (
         <Box w='100%'>
-            <NextLink href={link} target='_blank'>
-                <LinkBox cursor='pointer' display='flex' flexDirection='column' alignItems='center'>
-                    <Image
-                        src={thumbnail}
-                        alt={title}
-                        width={width}
-                        height={height}
-                        className='grid-item-thumbnail'
-                    />
-                    <Text mt={3} fontSize={16}>
-                        {title}
-                    </Text>
-                    <Text fontSize={14}>{children}</Text>
-                </LinkBox>
-            </NextLink>
+            {isShowDetail && (
+                <NextLink href={`works/${id}`} target='_blank'>
+                    <LinkBox
+                        cursor='pointer'
+                        display='flex'
+                        flexDirection='column'
+                        alignItems='center'
+                    >
+                        <Image
+                            src={thumbnail}
+                            alt={title}
+                            width={width}
+                            height={height}
+                            className='grid-item-thumbnail'
+                        />
+                        <Text mt={3} fontSize={14} fontWeight={600}>
+                            {title}
+                        </Text>
+                    </LinkBox>
+                </NextLink>
+            )}
+            {isShowDetail === false && (
+                <NextLink href={String(link)} target='_blank'>
+                    <LinkBox
+                        cursor='pointer'
+                        display='flex'
+                        flexDirection='column'
+                        alignItems='center'
+                    >
+                        <Image
+                            src={thumbnail}
+                            alt={title}
+                            width={width}
+                            height={height}
+                            className='grid-item-thumbnail'
+                        />
+                        <Text mt={3} fontSize={14} fontWeight={600}>
+                            {title}
+                        </Text>
+                    </LinkBox>
+                </NextLink>
+            )}
         </Box>
     )
 }
