@@ -25,6 +25,7 @@ const Work: NextPage<{
                                     thumbnail={item.thumbnail.url}
                                     width={item.thumbnail.width}
                                     height={item.thumbnail.height}
+                                    isShowDetail={item.isShowDetail}
                                     link={item.link}
                                 >
                                     {item.overview}

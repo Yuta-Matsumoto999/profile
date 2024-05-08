@@ -3,11 +3,11 @@ import Thumbnail from './thumbnail'
 interface Work {
     id: string
     title: string
-    overview: string
-    content: string
+    overview: string | null
+    content: string | null
     thumbnail: Thumbnail
     isShowDetail: boolean
-    link: string
+    link: string | null
 }
 
 export default Work
