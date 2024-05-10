@@ -5,7 +5,6 @@ import ShowRepository from '@/services/posts/repository/showRepository'
 import { Box, Container, Heading, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import Image from 'next/image'
-import Tag from '@/components/tag'
 import TagList from '@/components/tag'
 import Datetime from '@/components/datetime'
 
@@ -58,7 +57,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: false,
+        fallback: 'blocking',
     }
 }
 
