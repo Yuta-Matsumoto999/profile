@@ -1,13 +1,4 @@
-import {
-    Container,
-    Box,
-    Heading,
-    Text,
-    Image,
-    Link,
-    Button,
-    useColorModeValue,
-} from '@chakra-ui/react'
+import { Container, Box, Heading, Text, Image, Button, useColorModeValue } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import Section from '@/components/animations/section'
 import { NextPage } from 'next'
@@ -15,6 +6,8 @@ import Timeline from '@/components/timeline'
 import { Skills } from '@/const/skills'
 import SkillGrid from '@/components/skills'
 import PageAnimation from '@/components/animations/article'
+import Link from 'next/link'
+import NextImage from 'next/image'
 
 const Home: NextPage = () => {
     return (
@@ -44,16 +37,19 @@ const Home: NextPage = () => {
                         display='flex'
                         justifyContent='center'
                     >
-                        <Image
-                            src='/images/profile-logo.png'
-                            alt='my portfolio image'
+                        <Box
                             borderColor='whiteAlpha.800'
                             borderWidth={2}
                             borderStyle='solid'
-                            maxWidth='100px'
-                            display='inline-block'
                             borderRadius='full'
-                        />
+                        >
+                            <NextImage
+                                src='/images/profile-logo.png'
+                                alt='my portfolio image'
+                                width={90}
+                                height={90}
+                            />
+                        </Box>
                     </Box>
                 </Box>
 
