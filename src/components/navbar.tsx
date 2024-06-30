@@ -75,9 +75,6 @@ const NavBar = () => {
                     <LinkItem href='/works' path={''}>
                         Works
                     </LinkItem>
-                    <LinkItem href='/posts' path={''}>
-                        Posts
-                    </LinkItem>
                     <LinkItem href='/contact' path={''}>
                         Contact
                     </LinkItem>
@@ -98,9 +95,6 @@ const NavBar = () => {
                                 </Link>
                                 <Link href='/works' passHref scroll={false}>
                                     <MenuItem>Works</MenuItem>
-                                </Link>
-                                <Link href='/posts' passHref scroll={false}>
-                                    <MenuItem>Posts</MenuItem>
                                 </Link>
                                 <Link href='/contact' passHref scroll={false}>
                                     <MenuItem>Contact</MenuItem>
